@@ -1,9 +1,15 @@
+// HomePage.jsx
+// This component displays a responsive layout:
+// - On mobile (small screens), both sections stack vertically.
+// - On larger screens, two columns appear side by side.
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-  const [text, setText] = useState(''); // Text being typed
-  const [index, setIndex] = useState(0); // Current character index
+  // State for the typing effect
+  const [text, setText] = useState('');         // Current text being typed
+  const [charIndex, setCharIndex] = useState(0);  // Current character index
   const [phraseIndex, setPhraseIndex] = useState(0); // Current phrase index
 
   // Array of phrases for animation
@@ -17,59 +23,85 @@ function HomePage() {
     'Discover. Learn. Excel.',
     'Your Academic Companion at FGCU.'
   ];
-  
 
+  // Set page title and favicon on mount
   useEffect(() => {
-    document.title = 'EagleDocs'; // Page Title
+    document.title = 'EagleDocs';
     const favicon = document.querySelector("link[rel='icon']");
     if (favicon) {
-      favicon.href = '/favicon.ico'; // Page Icon
+      favicon.href = '/favicon.ico';
     }
   }, []);
 
+  // Typing effect
   useEffect(() => {
-    if (index < phrases[phraseIndex].length) {
-      // Add one character at a time
+    if (charIndex < phrases[phraseIndex].length) {
+      // Type one character at a time
       const timeout = setTimeout(() => {
-        setText((prev) => prev + phrases[phraseIndex][index]);
-        setIndex((prev) => prev + 1);
+        setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
+        setCharIndex((prevCharIndex) => prevCharIndex + 1);
       }, 50); // Typing speed
       return () => clearTimeout(timeout);
     } else {
-      // Pause before starting next phrase
+      // Pause before starting the next phrase
       const timeout = setTimeout(() => {
-        setText(''); // Clear the text
-        setIndex(0); // Reset character index
-        setPhraseIndex((prev) => (prev + 1) % phrases.length); // Move to next phrase
+        setText('');     
+        setCharIndex(0); 
+        setPhraseIndex((prevPhraseIndex) => (prevPhraseIndex + 1) % phrases.length);
       }, 2000); // Pause duration
       return () => clearTimeout(timeout);
     }
-  }, [index, phraseIndex]);
+  }, [charIndex, phraseIndex, phrases]);
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-blue-50">
-      <div className="text-center max-w-xl p-8 bg-white shadow-lg rounded-lg">
-        <img src="/EagleDocs Logo.png" alt="EagleDocs Logo" className="w-32 mx-auto mb-6" />
-        <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-          Welcome to EagleDocs
-        </h1>
-        <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-          {text}
-          <span className="blinking-cursor">.</span>
-        </p>
-        <div className="flex justify-center space-x-4">
-          <Link
-            to="/login"
-            className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300"
-          >
-            Sign In
-          </Link>
-          <Link
-            to="/register"
-            className="px-6 py-3 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 focus:ring focus:ring-gray-300"
-          >
-            Register
-          </Link>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-blue-50">
+      <div className="max-w-5xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Use flex-col on small screens, flex-row on medium and up */}
+        <div className="flex flex-col md:flex-row">
+          
+          {/* Left Column: Introducing EagleDocs and animated phrases */}
+          <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
+              Introducing EagleDocs
+            </h1>
+            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              {text}
+              <span className="blinking-cursor">.</span>
+            </p>
+          </div>
+
+          {/* Right Column: Logo, Sign In, Register, and "Continue without login" */}
+          <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
+            <img
+              src="/EagleDocs Logo.png"
+              alt="EagleDocs Logo"
+              className="w-20 md:w-32 mb-6"
+            />
+            <div className="flex space-x-4 mb-4">
+              <Link
+                to="/login"
+                className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/register"
+                className="px-6 py-3 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 focus:ring focus:ring-gray-300"
+              >
+                Register
+              </Link>
+            </div>
+            <Link
+              to="/chat"
+              className="inline-flex items-center space-x-1 text-sm text-blue-500 hover:text-blue-600"
+            >
+              <span>Try EagleDocs </span>
+              <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+          </div>
+
         </div>
       </div>
     </div>
