@@ -1,16 +1,14 @@
 // HomePage.jsx
-// This component displays a responsive layout:
-// - On mobile (small screens), both sections stack vertically.
-// - On larger screens, two columns appear side by side.
+//Not Ready For Deployment PIXL 01/29/2025
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
   // State for the typing effect
-  const [text, setText] = useState('');         // Current text being typed
-  const [charIndex, setCharIndex] = useState(0);  // Current character index
-  const [phraseIndex, setPhraseIndex] = useState(0); // Current phrase index
+  const [text, setText] = useState('');        
+  const [charIndex, setCharIndex] = useState(0);  
+  const [phraseIndex, setPhraseIndex] = useState(0);
 
   // Array of phrases for animation
   const phrases = [
@@ -18,7 +16,7 @@ function HomePage() {
     'Elevating Education for Every Eagle.',
     'Smart Learning Made Simple.',
     'Empowering Eagles, One Question at a Time.',
-    'AI-Powered Learning, Tailored for You.',
+    'AI-Powered Learning, Specialized for Your Course Data.',
     'Turning Challenges into Achievements.',
     'Discover. Learn. Excel.',
     'Your Academic Companion at FGCU.'
@@ -64,6 +62,9 @@ function HomePage() {
             <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
               Introducing EagleDocs
             </h1>
+            <p>
+              
+            </p>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
               {text}
               <span className="blinking-cursor">.</span>
@@ -95,7 +96,7 @@ function HomePage() {
               to="/chat"
               className="inline-flex items-center space-x-1 text-sm text-blue-500 hover:text-blue-600"
             >
-              <span>Try EagleDocs </span>
+              <span>Try EagleDocs BETA </span>
               <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
