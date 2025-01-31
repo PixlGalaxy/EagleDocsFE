@@ -81,6 +81,7 @@ function ChatPage() {
 
   // Message Send Handler
   const API = process.env.LLM_API_URL
+  const LLM_MODEL = process.env.LLM_MODEL
 
   const handleSendMessage = async () => {
     if (!userMessage.trim() || isStreaming) return;
@@ -97,13 +98,13 @@ function ChatPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'llama3.1:8b-instruct-fp16',
+          model: `${LLM_MODEL}`,
           messages: newMessages,
           stream: true,
         }),
       });
 
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      if (!response.ok) throw new Error(`HTTPS error! status: ${response.status}`);
       
       const reader = response.body.getReader();
       const decoder = new TextDecoder();

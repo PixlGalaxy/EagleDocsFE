@@ -7,4 +7,5 @@ services:
     ports:
       - "3000:80"
     environment:
-      - LLM_API_URL=http://skywolf.local:11434/api/chat: 
+      - LLM_API_URL="https://[SERVER API ENDPOINT]/api/chat"
+      - LLM_MODEL="llama3.1:8b-instruct-fp16"
