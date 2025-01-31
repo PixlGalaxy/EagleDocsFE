@@ -12,7 +12,7 @@ To run the Docker container for this project, follow these steps:
 
 1. Use the following command to run the container:
    ```bash
-   docker run -p 80:3000 ghcr.io/pixlgalaxy/eagledocsfe:latest```
+   docker run -p 80:3000 ghcr.io/pixlgalaxy/eagledocsfe:latest
 
 This will map port 3000 from the container to your host machine.
 
