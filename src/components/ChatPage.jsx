@@ -80,6 +80,8 @@ function ChatPage() {
   }, []);
 
   // Message Send Handler
+  const API = process.env.LLM_API_URL
+
   const handleSendMessage = async () => {
     if (!userMessage.trim() || isStreaming) return;
 
@@ -91,7 +93,7 @@ function ChatPage() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch('', {
+      const response = await fetch(`${API}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
