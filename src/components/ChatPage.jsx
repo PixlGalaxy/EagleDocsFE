@@ -80,8 +80,8 @@ function ChatPage() {
   }, []);
 
   // Message Send Handler
-  const API = process.env.LLM_API_URL
-  const LLM_MODEL = process.env.LLM_MODEL
+  const API = import.meta.env.VITE_LLM_API_URL;
+  const LLM_MODEL = import.meta.env.VITE_LLM_MODEL;
 
   const handleSendMessage = async () => {
     if (!userMessage.trim() || isStreaming) return;
@@ -94,11 +94,11 @@ function ChatPage() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch(`${API}`, {
+      const response = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: `${LLM_MODEL}`,
+          model: LLM_MODEL,
           messages: newMessages,
           stream: true,
         }),

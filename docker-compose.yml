@@ -7,5 +7,5 @@ services:
     ports:
       - "3000:80"
     environment:
-      - LLM_API_URL="https://[SERVER API ENDPOINT]/api/chat"
-      - LLM_MODEL="llama3.1:8b-instruct-fp16"
+      - VITE_LLM_API_URL="https://[Server API Endpoint]}/api/chat"
+      - VITE_LLM_MODEL="llama3.1:8b-instruct-fp16"
