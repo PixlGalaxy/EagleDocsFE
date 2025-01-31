@@ -80,9 +80,6 @@ function ChatPage() {
   }, []);
 
   // Message Send Handler
-  const API = import.meta.env.VITE_LLM_API_URL;
-  const LLM_MODEL = import.meta.env.VITE_LLM_MODEL;
-
   const handleSendMessage = async () => {
     if (!userMessage.trim() || isStreaming) return;
 
@@ -94,17 +91,17 @@ function ChatPage() {
     setIsStreaming(true);
 
     try {
-      const response = await fetch(API, {
+      const response = await fetch('https://skywolf-llama.eagledocs.org/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: LLM_MODEL,
+          model: 'llama3.1:8b-instruct-fp16',
           messages: newMessages,
           stream: true,
         }),
       });
 
-      if (!response.ok) throw new Error(`HTTPS error! status: ${response.status}`);
+      if (!response.ok) throw new Error(`HTTPS Error: ${response.status}`);
       
       const reader = response.body.getReader();
       const decoder = new TextDecoder();

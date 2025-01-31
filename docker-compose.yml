@@ -6,6 +6,3 @@ services:
     restart: always
     ports:
       - "3000:80"
-    environment:
-      - VITE_LLM_API_URL="https://[Server API Endpoint]}/api/chat"
-      - VITE_LLM_MODEL="llama3.1:8b-instruct-fp16"

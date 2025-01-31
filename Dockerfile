@@ -15,9 +15,5 @@ FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN echo 'echo "VITE_LLM_API_URL=$VITE_LLM_API_URL" > /usr/share/nginx/html/.env' >> /docker-entrypoint.sh && \
-    echo 'echo "VITE_LLM_MODEL=$VITE_LLM_MODEL" >> /usr/share/nginx/html/.env' >> /docker-entrypoint.sh && \
-    chmod +x /docker-entrypoint.sh
-
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
