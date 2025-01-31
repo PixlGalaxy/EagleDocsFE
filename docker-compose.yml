@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  react-app:
+  EagleDocs:
     image: pixlgalaxy/eagledocsfe:latest
     container_name: EagleDocs
     restart: always
