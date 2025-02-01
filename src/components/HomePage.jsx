@@ -65,7 +65,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-blue-50">
       <Helmet>
-        <title>EagleDocs - Elevating Education for Every Eagle</title>
+        <title>Home - EagleDocs</title>
         <meta
           name="description"
           content="Welcome to EagleDocs. Elevating Education for Every Eagle. Sign in or Register to access educational resources and chat with Azul AI."
