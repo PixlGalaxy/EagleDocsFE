@@ -89,12 +89,12 @@ function Developers() {
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Mobile Logo */}
-            <Link to="/">
-                <img
+            <Link to="/" className="md:hidden">
+              <img
                 src="/EagleDocs Logo.png"
                 alt="EagleDocs Logo"
                 className="w-10 md:hidden"
-                />
+              />
             </Link>
 
             {/* Hamburger Menu */}

@@ -85,12 +85,12 @@ function HomePage() {
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Mobile Logo */}
-            <Link to="/">
-                <img
+            <Link to="/" className="md:hidden">
+              <img
                 src="/EagleDocs Logo.png"
                 alt="EagleDocs Logo"
                 className="w-10 md:hidden"
-                />
+              />
             </Link>
             
             {/* Hamburger Menu */}
@@ -180,12 +180,14 @@ function HomePage() {
 
             {/* Right Column */}
             <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
-              <img
-                src="/EagleDocs Logo.png"
-                alt="EagleDocs Logo"
-                className={`w-16 md:w-32 mb-6 transition-all duration-300 ${isLogoAnimated ? 'falling-logo' : ''}`}
-                onClick={handleLogoClick}
-              />
+            <img
+              src="/EagleDocs Logo.png"
+              alt="EagleDocs Logo"
+              className={`w-24 md:w-32 mb-6 transition-all duration-300 ${
+                isLogoAnimated ? 'falling-logo' : ''
+              }`}
+              onClick={handleLogoClick}
+            />
               <div className="flex space-x-4 mb-4">
                 <Link
                   to="/login"

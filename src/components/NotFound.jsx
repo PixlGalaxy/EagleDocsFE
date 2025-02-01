@@ -13,12 +13,12 @@ function NotFound() {
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Mobile Logo */}
-            <Link to="/">
-                <img
+            <Link to="/" className="md:hidden">
+              <img
                 src="/EagleDocs Logo.png"
                 alt="EagleDocs Logo"
                 className="w-10 md:hidden"
-                />
+              />
             </Link>
             
             {/* Hamburger Menu */}
@@ -109,13 +109,13 @@ function NotFound() {
             404
           </h1>
           <p className="text-2xl md:text-4xl text-black mb-6 race-font">
-            The page you are looking for does not exist.
+            The page you are looking for does not exist
           </p>
           <Link
             to="/"
             className="text-xl md:text-2xl text-blue-700 hover:underline race-font"
           >
-            Go To EagleDocs Home Page.
+            Go To EagleDocs Home Page
           </Link>
           </div>
       </div>
