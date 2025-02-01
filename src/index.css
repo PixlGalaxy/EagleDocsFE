@@ -115,3 +115,106 @@ textarea {
     contain: strict;
   }
 }
+
+.custom-scrollbar {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
+
+.contributor {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.contributor.visible {
+  opacity: 1;
+}
+
+.custom-scrollbar {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.falling-logo {
+  animation: fall 2s ease-in-out forwards, fadeIn 3s ease-in-out 2s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(200px) rotate(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(400px) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: 'RaceSpace';
+  src: url('/fonts/RaceSpace.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.race-font {
+  font-family: 'RaceSpace', sans-serif;
+}
+
+/* ===== UNRAID ICONS ===== */
+
+@font-face {
+  font-family: 'UnraidIcons';
+  src: url('/fonts/font-unraid.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-'], [class*=' icon-'] {
+  font-family: 'UnraidIcons' !important;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ===== ICON DEFINITIONS ===== */
+
+.icon-nvme::before { content: "\e929"; }
+.icon-disk::before { content: "\e907"; }
+.icon-memory::before { content: "\e913"; }
+.icon-cpu-pinning::before { content: "\e904"; }
+.icon-cpu::before { content: "\e905"; }
+
+.icon {
+  font-size: 1.5rem;
+  color: inherit;
+}
