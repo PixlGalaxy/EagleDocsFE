@@ -8,8 +8,8 @@ function HomePage() {
   const [charIndex, setCharIndex] = useState(0);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [clickCount, setClickCount] = useState(0); // Contador de clics
-  const [isLogoAnimated, setIsLogoAnimated] = useState(false); // Controlar la animación del logo
+  const [clickCount, setClickCount] = useState(0);
+  const [isLogoAnimated, setIsLogoAnimated] = useState(false);
 
   const phrases = [
     'Your Knowledge, Our Mission.',
@@ -47,18 +47,17 @@ function HomePage() {
     }
   }, [charIndex, phraseIndex, phrases]);
 
-  // Función para manejar clics en el logo
   const handleLogoClick = () => {
     setClickCount(clickCount + 1);
     if (clickCount + 1 === 10) {
-      // Iniciar animación después de 10 clics
+
       setIsLogoAnimated(true);
 
-      // Resetear el contador de clics después de la animación
+
       setTimeout(() => {
         setIsLogoAnimated(false);
         setClickCount(0);
-      }, 3000); // Duración de la animación
+      }, 3000);
     }
   };
 
