@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
 
 function HomePage() {
-  // States
   const [text, setText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
   const [phraseIndex, setPhraseIndex] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [isLogoAnimated, setIsLogoAnimated] = useState(false);
 
@@ -50,10 +50,7 @@ function HomePage() {
   const handleLogoClick = () => {
     setClickCount(clickCount + 1);
     if (clickCount + 1 === 10) {
-
       setIsLogoAnimated(true);
-
-
       setTimeout(() => {
         setIsLogoAnimated(false);
         setClickCount(0);
@@ -62,141 +59,49 @@ function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-blue-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-100 to-blue-50">
       <Helmet>
         <title>Home - EagleDocs</title>
-        <meta
-          name="description"
-          content="Welcome to EagleDocs. Elevating Education for Every Eagle. Sign in or Register to access educational resources and chat with Azul AI."
-        />
-        <meta
-          property="og:title"
-          content="EagleDocs - Elevating Education for Every Eagle"
-        />
-        <meta
-          property="og:description"
-          content="Welcome to EagleDocs. Elevating Education for Every Eagle. Sign in or Register to access educational resources and chat with Azul AI."
-        />
       </Helmet>
 
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-90 shadow-sm backdrop-blur-sm z-50">
-        <div className="max-w-5xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            {/* Mobile Logo */}
-            <Link to="/" className="md:hidden">
-              <img
-                src="/EagleDocs Logo.png"
-                alt="EagleDocs Logo"
-                className="w-10 md:hidden"
-              />
-            </Link>
-            
-            {/* Hamburger Menu */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-600 hover:text-blue-500"
-            >
-              {isMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-
-            {/* Navigation Links */}
-            <div className={`md:flex items-center space-x-6 ${isMenuOpen ? 
-              'absolute top-full left-0 right-0 bg-white py-4 px-6 shadow-lg text-center' : 
-              'hidden'}`}
-            >
-              <div className="flex flex-col space-y-3 md:flex-row md:space-y-0 md:space-x-6">
-                <Link
-                  to="/"
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  Home
-                </Link>
-                <a 
-                  href="https://onlinestatus.eagledocs.org" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  Server Status
-                </a>
-                <a 
-                  href="https://discord.gg/4RuUjT2jNv" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  Discord
-                </a>
-                <Link 
-                  to="/about" 
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  About
-                </Link>
-                <Link 
-                  to="/developers" 
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  Developers
-                </Link>
-                <a 
-                  href="https://github.com/PixlGalaxy/EagleDocsFE" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Main Content */}
-      <div className="pt-16 min-h-screen flex items-center justify-center">
-        <div className="max-w-5xl w-full bg-white shadow-lg rounded-lg overflow-hidden mx-4">
+      <div className="flex-grow flex items-center justify-center">
+        <div className="max-w-xl sm:max-w-3xl md:max-w-5xl w-full bg-white shadow-lg rounded-lg overflow-hidden mx-4">
           <div className="flex flex-col md:flex-row">
             {/* Left Column */}
-            <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
-              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
+            <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 flex flex-col justify-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 text-center md:text-left">
                 Introducing EagleDocs
               </h1>
-              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed text-center md:text-left">
                 {text}
                 <span className="blinking-cursor">.</span>
               </p>
             </div>
 
             {/* Right Column */}
-            <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
-            <img
-              src="/EagleDocs Logo.png"
-              alt="EagleDocs Logo"
-              className={`w-24 md:w-32 mb-6 transition-all duration-300 ${
-                isLogoAnimated ? 'falling-logo' : ''
-              }`}
-              onClick={handleLogoClick}
-            />
+            <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center">
+              <img
+                src="/EagleDocs Logo.png"
+                alt="EagleDocs Logo"
+                className={`w-24 md:w-32 mb-6 transition-all duration-300 ${
+                  isLogoAnimated ? 'falling-logo' : ''
+                }`}
+                onClick={handleLogoClick}
+              />
               <div className="flex space-x-4 mb-4">
                 <Link
                   to="/login"
-                  className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors text-sm md:text-base"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors text-sm sm:text-base"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/register"
-                  className="px-6 py-3 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 transition-colors text-sm md:text-base"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 transition-colors text-sm sm:text-base"
                 >
                   Register
                 </Link>
@@ -214,6 +119,8 @@ function HomePage() {
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

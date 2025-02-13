@@ -1,19 +1,18 @@
-// NotFound.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "./layout/Navbar";
 
-function NotFound() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-300 to-yellow-500 flex flex-col">
       
       {/* Navigation Bar */}
       <Navbar />
 
-      <div className="pt-20 flex-1 flex flex-col md:flex-row items-center justify-center px-4 md:px-0">
+      {/* Main Content */}
+      <div className="pt-20 flex-grow flex flex-col md:flex-row items-center justify-center px-4 md:px-0">
         
+        {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
           <img
             src="/Galaxy.webp"
@@ -22,12 +21,14 @@ function NotFound() {
           />
         </div>
 
+        {/* Text Section */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
           <h1 className="text-[6rem] md:text-[10rem] font-extrabold text-black leading-none mb-4 race-font">
-            404
+            OOPS :(
           </h1>
           <p className="text-2xl md:text-4xl text-black mb-6 race-font">
-            The page you are looking for does not exist
+            We're Still Working On This Page. <br/>
+            Check Out Our <Link to="https://github.com/PixlGalaxy/EagleDocsFE" className='text-blue-700 hover:underline race-font'>GitHub</Link> For Recent Updates!
           </p>
           <Link
             to="/"
@@ -35,7 +36,7 @@ function NotFound() {
           >
             Go To EagleDocs Home Page
           </Link>
-          </div>
+        </div>
       </div>
 
       {/* Artwork Credits */}
@@ -46,4 +47,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default PrivacyPolicy;

@@ -95,7 +95,7 @@ function ChatPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'Azul_AI_V1:8B',
+          model: 'Azul_AI_V2:32b',
           messages: newMessages,
           stream: true,
         }),

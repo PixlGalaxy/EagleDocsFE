@@ -6,7 +6,10 @@ import RegisterPage from './components/RegisterPage';
 import ChatPage from './components/ChatPage';
 import NotFound from './components/NotFound';
 import Developers from './components/Developers';
-import About from './components/About'; // Importamos la nueva página About
+import About from './components/About';
+import TermsOfService from './components/TermsOfServicePage';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Contact from './components/ContactPage';
 
 function App() {
   const isAuthenticated = localStorage.getItem('token');
@@ -14,6 +17,10 @@ function App() {
   return (
     <Router>
       <Routes>
+
+        {/* Catch-all for unmatched routes */}
+        <Route path="*" element={<NotFound />} />
+
         {/* Anyone can view homepage */}
         <Route path="/" element={<HomePage />} />
 
@@ -38,8 +45,15 @@ function App() {
         {/* About Page */}
         <Route path="/about" element={<About />} />
 
-        {/* Catch-all for unmatched routes */}
-        <Route path="*" element={<NotFound />} />
+        {/* TermsOfService Page */}
+        <Route path="/tos" element={<TermsOfService />} />
+        
+        {/* PrivacyPolicy Page */}
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+
+        {/* Contact Page */}
+        <Route path="/contact" element={<Contact />} />
+
       </Routes>
     </Router>
   );
