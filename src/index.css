@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==== Reglas básicas ==== */
+/* ==== Basic rules ==== */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -54,7 +54,7 @@ h1 {
   line-height: 1.1;
 }
 
-/* ==== Botones ==== */
+/* ==== Buttons ==== */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -79,7 +79,7 @@ button:focus-visible {
   }
 }
 
-/* ==== Cursor parpadeante (para code blocks, etc.) ==== */
+/* ==== Blinking cursor (for code blocks, etc.) ==== */
 .blinking-cursor {
   width: 1px;
   background-color: rgb(107, 107, 107);
@@ -90,28 +90,27 @@ button:focus-visible {
   50%      { opacity: 1; }
 }
 
-/* ==== Estilos para Scrollbar personalizado ==== */
+/* ==== Styles for custom scrollbar ==== */
 .custom-scrollbar {
-  /* Quita o ajusta si no quieres límite de altura */
   max-height: 500px;
   overflow-y: auto;
 
-  /* Para Firefox */
-  scrollbar-width: thin;              /* grosor del scrollbar */
-  scrollbar-color: #888 transparent;  /* color del thumb y track */
+  /* For Firefox */
+  scrollbar-width: thin;               /* scrollbar thickness */
+  scrollbar-color: #888 transparent;   /* thumb and track color */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;               /* grosor en Chrome, Safari, etc. */
-  /* height: 8px;           para scroll horizontal si lo hubiera */
+  width: 8px; /* thickness in Chrome, Safari, etc. */
+  /* height: 8px;  for horizontal scroll if it exists */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;  /* el riel */
+  background: transparent;  /* the track */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888;         /* color del thumb */
+  background: #888;         /* thumb color */
   border-radius: 4px;
 }
 
@@ -119,7 +118,7 @@ button:focus-visible {
   background: #555;
 }
 
-/* ==== Textarea optimizaciones ==== */
+/* ==== Textarea optimizations ==== */
 textarea {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -141,7 +140,7 @@ textarea {
   opacity: 1;
 }
 
-/* ==== Animaciones y contenedores para "think" ==== */
+/* ==== Animations and containers for "think" ==== */
 .think-container {
   margin: 10px 0;
 }
@@ -161,7 +160,7 @@ textarea {
   border: 1px solid #ddd;
 }
 
-/* ==== Ejemplo de animaciones personalizadas ==== */
+/* ==== Example of custom animations ==== */
 .falling-logo {
   animation: fall 2s ease-in-out forwards, fadeIn 3s ease-in-out 2s;
 }
@@ -187,7 +186,7 @@ textarea {
   100% { opacity: 1; }
 }
 
-/* ==== Fuentes personalizadas ==== */
+/* ==== Custom fonts ==== */
 @font-face {
   font-family: 'RaceSpace';
   src: url('/fonts/RaceSpace.otf') format('opentype');
@@ -198,7 +197,7 @@ textarea {
   font-family: 'RaceSpace', sans-serif;
 }
 
-/* ======= UNRAID ICONS ======= */
+/* ==== Unraid Icons === */
 @font-face {
   font-family: 'UnraidIcons';
   src: url('/fonts/font-unraid.woff') format('woff');
@@ -213,7 +212,7 @@ textarea {
   display: inline-block;
   line-height: 1;
 }
-/* Icon definitions */
+/* === Icon definitions === */
 .icon-nvme::before    { content: "\e929"; }
 .icon-disk::before    { content: "\e907"; }
 .icon-memory::before  { content: "\e913"; }
