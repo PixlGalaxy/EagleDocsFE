@@ -39,7 +39,7 @@ function NotFound() {
       </div>
 
       {/* Artwork Credits */}
-      <footer className="w-full py-2  text-right pr-4 text-gray-700 text-sm opacity-80 hover:opacity-100 transition-opacity">
+      <footer className="w-full py-2 text-right pr-4 text-black-700 text-sm">
         ArtWork By PulexArt 
       </footer>
     </div>
