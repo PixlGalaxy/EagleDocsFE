@@ -37,7 +37,7 @@ function Navbar() {
               <a href="https://discord.gg/4RuUjT2jNv" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0">Discord</a>
               <Link to="/about" className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0">About</Link>
               <Link to="/developers" className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0">Developers</Link>
-              <a href="https://github.com/PixlGalaxy/EagleDocsFE" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0">GitHub</a>
+              <Link to="/github" className="text-gray-600 hover:text-blue-500 transition-colors py-2 md:py-0">GitHub</Link>
             </div>
           </div>
         </div>
