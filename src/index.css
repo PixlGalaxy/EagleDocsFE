@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==== Reglas básicas ==== */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -17,6 +18,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+/* ==== Links ==== */
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,7 +34,13 @@ a {
 a:hover {
   color: #535bf2;
 }
+@media (prefers-color-scheme: light) {
+  a:hover {
+    color: #747bff;
+  }
+}
 
+/* ==== Body & general reset ==== */
 body {
   margin: 0;
   padding: 0;
@@ -39,6 +54,7 @@ h1 {
   line-height: 1.1;
 }
 
+/* ==== Botones ==== */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -57,45 +73,45 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
   button {
     background-color: #f9f9f9;
   }
 }
 
+/* ==== Cursor parpadeante (para code blocks, etc.) ==== */
 .blinking-cursor {
   width: 1px;
   background-color: rgb(107, 107, 107);
   animation: blink 1s step-end infinite;
 }
-
 @keyframes blink {
-  from, to {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 1; }
+}
+
+/* ==== Estilos para Scrollbar personalizado ==== */
+.custom-scrollbar {
+  /* Quita o ajusta si no quieres límite de altura */
+  max-height: 500px;
+  overflow-y: auto;
+
+  /* Para Firefox */
+  scrollbar-width: thin;              /* grosor del scrollbar */
+  scrollbar-color: #888 transparent;  /* color del thumb y track */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 8px;               /* grosor en Chrome, Safari, etc. */
+  /* height: 8px;           para scroll horizontal si lo hubiera */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent;  /* el riel */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888;         /* color del thumb */
   border-radius: 4px;
 }
 
@@ -103,47 +119,52 @@ button:focus-visible {
   background: #555;
 }
 
+/* ==== Textarea optimizaciones ==== */
 textarea {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 }
-
 @supports (contain: strict) {
   textarea {
     contain: strict;
   }
 }
 
-.custom-scrollbar {
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent; /* Firefox */
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  display: none; 
-}
-
+/* ==== Contributor fade-in ==== */
 .contributor {
   opacity: 0;
   transition: opacity 0.3s ease-out;
 }
-
 .contributor.visible {
   opacity: 1;
 }
 
-.custom-scrollbar {
-  max-height: 500px;
-  overflow-y: auto;
+/* ==== Animaciones y contenedores para "think" ==== */
+.think-container {
+  margin: 10px 0;
+}
+.think-toggle {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px;
+}
+.think-content {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #ddd;
 }
 
+/* ==== Ejemplo de animaciones personalizadas ==== */
 .falling-logo {
   animation: fall 2s ease-in-out forwards, fadeIn 3s ease-in-out 2s;
 }
-
 @keyframes fall {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -158,45 +179,32 @@ textarea {
     opacity: 0;
   }
 }
-
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.75;
-  }
-  100% {
-    opacity: 1;
-  }
+  0%   { opacity: 0; }
+  25%  { opacity: 0.25; }
+  50%  { opacity: 0.5; }
+  75%  { opacity: 0.75; }
+  100% { opacity: 1; }
 }
 
+/* ==== Fuentes personalizadas ==== */
 @font-face {
   font-family: 'RaceSpace';
   src: url('/fonts/RaceSpace.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
-
 .race-font {
   font-family: 'RaceSpace', sans-serif;
 }
 
-/* ===== UNRAID ICONS ===== */
-
+/* ======= UNRAID ICONS ======= */
 @font-face {
   font-family: 'UnraidIcons';
   src: url('/fonts/font-unraid.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
-
 [class^='icon-'], [class*=' icon-'] {
   font-family: 'UnraidIcons' !important;
   font-style: normal;
@@ -205,14 +213,12 @@ textarea {
   display: inline-block;
   line-height: 1;
 }
-
-/* ===== ICON DEFINITIONS ===== */
-
-.icon-nvme::before { content: "\e929"; }
-.icon-disk::before { content: "\e907"; }
-.icon-memory::before { content: "\e913"; }
+/* Icon definitions */
+.icon-nvme::before    { content: "\e929"; }
+.icon-disk::before    { content: "\e907"; }
+.icon-memory::before  { content: "\e913"; }
 .icon-cpu-pinning::before { content: "\e904"; }
-.icon-cpu::before { content: "\e905"; }
+.icon-cpu::before     { content: "\e905"; }
 
 .icon {
   font-size: 1.5rem;
