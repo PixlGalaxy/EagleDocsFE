@@ -31,8 +31,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://onlinestatus.eagledocs.org</loc>
-    <lastmod>2025-01-31</lastmod>
-    <priority>0.7</priority>
+    <loc>https://eagledocs.org/contact</loc>
+    <lastmod>2025-02-13</lastmod>
+    <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://eagledocs.org/tos</loc>
+    <lastmod>2025-02-13</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://eagledocs.org/privacy</loc>
+    <lastmod>2025-02-13</lastmod>
+    <priority>0.4</priority>
+  </url>
+
+
 </urlset>
