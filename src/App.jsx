@@ -10,13 +10,14 @@ import About from './components/About';
 import TermsOfService from './components/TermsOfServicePage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Contact from './components/ContactPage';
+import GitHubPage from './components/GitHubPage';
 
 function App() {
   const isAuthenticated = localStorage.getItem('token');
 
   return (
     <Router>
-      <Routes>
+      <Routes> 
 
         {/* Catch-all for unmatched routes */}
         <Route path="*" element={<NotFound />} />
@@ -53,6 +54,9 @@ function App() {
 
         {/* Contact Page */}
         <Route path="/contact" element={<Contact />} />
+
+        {/* GitHub Page */}
+        <Route path="/github" element={<GitHubPage />} />
 
       </Routes>
     </Router>
