@@ -11,12 +11,12 @@ function About() {
 
   // Graph Data
   const data = [
-    { name: "AIME 2024", OpenAI: 63.6, AzulV2: 72.6, AzulV1: 68.0 },
-    { name: "Codeforces", OpenAI: 58.7, AzulV2: 90.6, AzulV1: 85.3 },
-    { name: "GPQA Diamond", OpenAI: 60.0, AzulV2: 62.1, AzulV1: 59.5 },
-    { name: "MATH-500", OpenAI: 90.2, AzulV2: 94.3, AzulV1: 91.5 },
-    { name: "MMLU", OpenAI: 87.4, AzulV2: 85.2, AzulV1: 82.0 },
-    { name: "SWE-bench Verified", OpenAI: 36.8, AzulV2: 42.0, AzulV1: 38.5 },
+    { name: "AIME 2024", OpenAI: 63.6, AzulV2: 72.6 },
+    { name: "Codeforces", OpenAI: 58.7, AzulV2: 90.6 },
+    { name: "GPQA Diamond", OpenAI: 60.0, AzulV2: 62.1 },
+    { name: "MATH-500", OpenAI: 90.2, AzulV2: 94.3 },
+    { name: "MMLU", OpenAI: 87.4, AzulV2: 85.2 },
+    { name: "SWE-bench Verified", OpenAI: 36.8, AzulV2: 42.0 },
   ];
 
   return (
@@ -60,9 +60,8 @@ function About() {
             <YAxis label={{ value: "Accuracy (%)", angle: -90, position: "insideLeft", fontSize: 12 }} />
             <Tooltip />
             <Legend />
-            <Bar dataKey="OpenAI" fill="gray" name="OpenAI-o1-Mini" />
+            <Bar dataKey="OpenAI" fill="purple" name="OpenAI-o1-Mini" />
             <Bar dataKey="AzulV2" fill="blue" name="Azul AI V2: 32B" />
-            <Bar dataKey="AzulV1" fill="green" name="Azul AI V1: 8B" />
           </BarChart>
         </ResponsiveContainer>
       </div>
