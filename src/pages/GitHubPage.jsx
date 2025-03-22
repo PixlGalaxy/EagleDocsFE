@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import Navbar from "./layout/Navbar";
-import Footer from "./layout/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function GitHubPage() {
   const [frontendLastUpdate, setFrontendLastUpdate] = useState(null);

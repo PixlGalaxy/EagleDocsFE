@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import Navbar from "./layout/Navbar";
-import Footer from "./layout/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,7 +99,7 @@ function About() {
             <div className="flex items-center space-x-4 bg-gray-100 p-4 rounded-lg shadow md:col-span-2">
             <i className="icon-cpu-pinning text-4xl text-black-700"></i>
             <div>
-                <h3 className="text-xl font-semibold text-gray-900">Graphics</h3>
+                <h3 className="text-xl font-semibold text-gray-900">GPU</h3>
                 <p className="text-gray-700">AMD Radeon RX 7900 XTX (24GB VRAM)</p>
             </div>
             </div>

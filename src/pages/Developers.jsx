@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import Navbar from './layout/Navbar';
+import Navbar from '../components/Navbar';
 
 function Developers() {
   const [userData, setUserData] = useState(null);

@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage';
-import ChatPage from './components/ChatPage';
-import NotFound from './components/NotFound';
-import Developers from './components/Developers';
-import About from './components/About';
-import TermsOfService from './components/TermsOfServicePage';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import Contact from './components/ContactPage';
-import GitHubPage from './components/GitHubPage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ChatPage from './pages/ChatPage';
+import NotFound from './pages/NotFound';
+import Developers from './pages/Developers';
+import About from './pages/About';
+import TermsOfService from './pages/TermsOfServicePage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Contact from './pages/ContactPage';
+import GitHubPage from './pages/GitHubPage';
 
 function App() {
   const isAuthenticated = localStorage.getItem('token');

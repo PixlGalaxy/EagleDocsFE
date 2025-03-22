@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Navbar from "./layout/Navbar";
-import Footer from "./layout/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const [text, setText] = useState('');
