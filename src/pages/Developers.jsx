@@ -39,7 +39,11 @@ function Developers() {
     const fetchContributors = async () => {
       try {
         const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contributors`);
-        const data = await response.json();
+        let data = await response.json(); 
+
+        // Filter out dependabot from contributors
+        data = data.filter((contributor) => contributor.login !== 'dependabot[bot]');
+
         setContributors(data);
       } catch (error) {
         console.error('Error fetching contributor data:', error);
